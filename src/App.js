@@ -18,7 +18,7 @@ class App extends Component {
         <div id="main-content">
           <TopNavbar />
           <Switch>
-            <Route path="/reaction" component={Reaction}>
+            <Route path="/reaction/:reactionId" component={Reaction}>
             </Route>
             <Route path="/exam" component={Exam}>
             </Route>
