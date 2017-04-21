@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import { Link, NavLink } from 'react-router-dom';
 import './TopNavbar.css';
+import logo from './Logo.png';
 
 class TopNavbar extends Component {
   constructor() {
@@ -48,7 +49,7 @@ class TopNavbar extends Component {
           <Link to={'/'}
             className="nav-item"
             >
-            <img src="http://bulma.io/images/bulma-logo.png" alt="Bulma logo" />
+            <img src={logo} alt="PeekPeek logo" />
           </Link>
         </div>
 
