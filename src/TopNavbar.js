@@ -19,12 +19,29 @@ class TopNavbar extends Component {
   buildReactionPath = reactionNo =>
     `/reaction/${reactionNo}`;
 
-  selectReaction = event =>
-    this.props.history.push(this.buildReactionPath(event.target.value));
+  selectReaction = (event) => {
+    const selected = event.target.value;
+    this.props.history.push(this.buildReactionPath(selected));
+  };
+
+  matchedReactionFromPath = (path) => {
+    const reReactionId = /\/reaction\/([^/]+)/g;
+    const match = reReactionId.exec(path);
+    const hasMatchedReaction = match !== null;
+    return hasMatchedReaction ? match[1] : '/';
+  };
 
   render() {
     const isActive = this.state.toggled ?
       'is-active' : '';
+    const reactions = {
+      'reaction_1': 'Reacción 1',
+      'reaction_2': 'Reacción 2',
+      'reaction_3': 'Reacción 3',
+    };
+    const matchedReaction = this.matchedReactionFromPath(
+      this.props.location.pathname
+    );
     return (
       <nav className="nav">
         <div className="nav-left">
@@ -39,17 +56,15 @@ class TopNavbar extends Component {
           <div className="nav-item field">
             <p className="control">
               <span className="select">
-                <select onChange={this.selectReaction}>
-                  <option value="/">Selecciona una reacción</option>
-                  <option value="1">
-                    Reacción 1
+                <select value={matchedReaction} onChange={this.selectReaction}>
+                  <option value="/">
+                    Selecciona una reacción
                   </option>
-                  <option value="2">
-                    Reacción 2
-                  </option>
-                  <option value="3">
-                    Reacción 3
-                  </option>
+                  {Object.keys(reactions).map(k => (
+                    <option key={k} value={k}>
+                      {reactions[k]}
+                    </option>
+                  ))}
                 </select>
               </span>
             </p>
