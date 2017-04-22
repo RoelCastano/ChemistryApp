@@ -4,4 +4,23 @@ body {
   font-family: sans-serif;
 }
 
+@import "functions";
+@import "variables";
+
+// http://www.cssdrive.com/imagepalette/index.php
+$green: #b2c19c;
+
+// http://www.pictaculous.com/
+$lightyellow: #E0DBA8;
+$yellow: #FFCF44;
+$lightblue: #32A1F0;
+$blue: #1D6DDB;
+
+$primary: $yellow;
+$info: $blue;
+$success: $green;
+$warning: $yellow;
+
+$link: $primary;
+
 @import "bulma";
