@@ -29,3 +29,12 @@ $link: $primary;
 // it is at the end of the bulma variables file but it wasn't using my overridden vals
 // 4. Lists and maps
 $colors: (white: ($white, $black), black: ($black, $white), light: ($light, $light-invert), dark: ($dark, $dark-invert), primary: ($primary, $primary-invert), info: ($info, $info-invert), success: ($success, $success-invert), warning: ($warning, $warning-invert), danger: ($danger, $danger-invert)) !default
+
+.nav {
+  align-items: stretch;
+  background-color: #36A3EF;
+  display: flex;
+  min-height: 3.25rem;
+  position: relative;
+  text-align: center;
+  z-index: 2; }

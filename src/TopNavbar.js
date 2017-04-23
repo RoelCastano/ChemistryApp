@@ -51,9 +51,7 @@ class TopNavbar extends Component {
           <Link to={'/'}
             className="nav-item logo-link"
             >
-            <button className="button is-primary">
-              <img src={logo} alt="PeekPeek logo" />
-            </button>
+            <img src={logo} alt="PeekPeek logo" />
           </Link>
         </div>
 
