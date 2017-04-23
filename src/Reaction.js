@@ -18,18 +18,20 @@ class Reaction extends Component {
     const match = this.props.match;
     const reactionId = this.props.match.params.reactionId;
     return (
-      <div className="section">
-        <p>
-          Hello from Reaction {reactionId}.
-        </p>
-        <Switch>
-          <Route path={`${match.url}/practice`}
-            component={ReactionPractice}>
-          </Route>
-          <Route path={`${match.url}`}
-            component={Description}>
-          </Route>
-        </Switch>
+      <div className="section background">
+        <div className="displayBox">
+          <p>
+            Hello from Reaction {reactionId}.
+          </p>
+          <Switch>
+            <Route path={`${match.url}/practice`}
+              component={ReactionPractice}>
+            </Route>
+            <Route path={`${match.url}`}
+              component={Description}>
+            </Route>
+          </Switch>
+        </div>
       </div>
     );
   }
