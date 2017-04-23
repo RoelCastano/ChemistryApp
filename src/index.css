@@ -2035,10 +2035,12 @@ input[type="submit"].button {
   vertical-align: middle; }
 
 .title {
-  color: #363636;
-  font-size: 2rem;
-  font-weight: 300;
-  line-height: 1.125; }
+  color: black;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.125;
+  padding-bottom: 20px;
+  padding-top: 20px; }
 
 .title strong {
   color: inherit; }
@@ -2068,8 +2070,8 @@ input[type="submit"].button {
   font-size: 1rem; }
 
 .subtitle {
-  color: #4a4a4a;
-  font-size: 1.25rem;
+  color: black;
+  font-size: 1rem;
   font-weight: 300;
   line-height: 1.25; }
 
@@ -4663,7 +4665,7 @@ label.panel-block:hover {
   flex-shrink: 1; }
 
 .section {
-  background-color: white;
+  background-color: #EAEAEA;
   padding: 3rem 1.5rem; }
 
 @media screen and (min-width: 1000px) {
@@ -4675,3 +4677,8 @@ label.panel-block:hover {
 .footer {
   background-color: whitesmoke;
   padding: 3rem 1.5rem 6rem; }
+
+.front {
+  background-color: white;
+  width: 1020px;
+  height: 500px; }
