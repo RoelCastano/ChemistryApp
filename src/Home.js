@@ -5,7 +5,7 @@ import image from './Image.png';
 class Home extends Component {
   render() {
     return (
-      <div className="section">
+      <div className="section background">
         <div className="displayBox">
           <div className="content">
             <div className="container is-fluid">
