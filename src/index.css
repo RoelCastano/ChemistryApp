@@ -2039,8 +2039,8 @@ input[type="submit"].button {
   font-size: 1.5rem;
   font-weight: 400;
   line-height: 1.125;
-  padding-bottom: 20px;
-  padding-top: 20px; }
+  padding-bottom: 15px;
+  padding-top: 25px; }
 
 .title strong {
   color: inherit; }
@@ -4666,7 +4666,7 @@ label.panel-block:hover {
 
 .section {
   background-color: #EAEAEA;
-  padding: 3rem 1.5rem; }
+  padding: 6rem 1.5rem 7rem; }
 
 @media screen and (min-width: 1000px) {
   .section.is-medium {
@@ -4678,7 +4678,29 @@ label.panel-block:hover {
   background-color: whitesmoke;
   padding: 3rem 1.5rem 6rem; }
 
-.front {
+.displayBox {
   background-color: white;
   width: 1020px;
-  height: 500px; }
+  height: 500px;
+  vertical-align: middle;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto; }
+
+.buttons {
+  position: absolute;
+  bottom: 20px;
+  right: 30px; }
+
+.button.continue {
+  background: #FFCF45;
+  color: black;
+  font-size: 14px;
+  color: #000000;
+  letter-spacing: -0.48px;
+  padding: 1rem 2rem 1rem 2rem; }
+
+.button.back {
+  font-size: 18px;
+  color: #36A3EF;
+  letter-spacing: 0; }
