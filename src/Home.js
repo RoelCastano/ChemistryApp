@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Home.css';
-import image from './Image.png';
+//import image from './Image.png';
 
 class Home extends Component {
   render() {
@@ -13,7 +13,7 @@ class Home extends Component {
                   Reacción de obtención de analgésicos
               </p>
               <p className="subtitle">
-                  Esta unidad estudia los fundamentos de las reacciones para 
+                  Esta unidad estudia los fundamentos de las reacciones para
                   la obtención de fármacos analgésicos.
               </p>
             </div>
