@@ -4664,7 +4664,7 @@ label.panel-block:hover {
   flex-grow: 1;
   flex-shrink: 1; }
 
-.section {
+.section.background {
   background-color: #EAEAEA;
   padding: 6rem 1.5rem 7rem; }
 
