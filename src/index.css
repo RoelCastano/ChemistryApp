@@ -2923,7 +2923,7 @@ a.nav-item.is-tab.is-active {
 
 .nav {
   align-items: stretch;
-  background-color: white;
+  background-color: #36A3EF;
   display: flex;
   min-height: 3.25rem;
   position: relative;

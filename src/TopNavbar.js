@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import { Link, NavLink } from 'react-router-dom';
 import './TopNavbar.css';
-import logo from './Logo.png';
+import logo from './Logo2.png';
 
 class TopNavbar extends Component {
   constructor() {
@@ -36,9 +36,11 @@ class TopNavbar extends Component {
     const isActive = this.state.toggled ?
       'is-active' : '';
     const reactions = {
-      'reaction_1': 'Reacción 1',
-      'reaction_2': 'Reacción 2',
-      'reaction_3': 'Reacción 3',
+      'reaction_1': 'Aspirin',
+      'reaction_2': 'Valium',
+      'reaction_3': 'Librium',
+      'reaction_4': 'Advil',
+      'reaction_5': 'Tylenol'
     };
     const matchedReaction = this.matchedReactionFromPath(
       this.props.location.pathname
