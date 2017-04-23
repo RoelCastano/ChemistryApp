@@ -2035,12 +2035,10 @@ input[type="submit"].button {
   vertical-align: middle; }
 
 .title {
-  color: black;
-  font-size: 1.5rem;
-  font-weight: 400;
-  line-height: 1.125;
-  padding-bottom: 15px;
-  padding-top: 25px; }
+  color: #363636;
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 1.125; }
 
 .title strong {
   color: inherit; }
@@ -2070,8 +2068,8 @@ input[type="submit"].button {
   font-size: 1rem; }
 
 .subtitle {
-  color: black;
-  font-size: 1rem;
+  color: #4a4a4a;
+  font-size: 1.25rem;
   font-weight: 300;
   line-height: 1.25; }
 
@@ -2925,7 +2923,7 @@ a.nav-item.is-tab.is-active {
 
 .nav {
   align-items: stretch;
-  background-color: #36A3EF;
+  background-color: white;
   display: flex;
   min-height: 3.25rem;
   position: relative;
@@ -4664,9 +4662,9 @@ label.panel-block:hover {
   flex-grow: 1;
   flex-shrink: 1; }
 
-.section.background {
-  background-color: #EAEAEA;
-  padding: 6rem 1.5rem 7rem; }
+.section {
+  background-color: white;
+  padding: 3rem 1.5rem; }
 
 @media screen and (min-width: 1000px) {
   .section.is-medium {
@@ -4677,30 +4675,3 @@ label.panel-block:hover {
 .footer {
   background-color: whitesmoke;
   padding: 3rem 1.5rem 6rem; }
-
-.displayBox {
-  background-color: white;
-  width: 1020px;
-  height: 500px;
-  vertical-align: middle;
-  position: relative;
-  margin-left: auto;
-  margin-right: auto; }
-
-.buttons {
-  position: absolute;
-  bottom: 20px;
-  right: 30px; }
-
-.button.continue {
-  background: #FFCF45;
-  color: black;
-  font-size: 14px;
-  color: #000000;
-  letter-spacing: -0.48px;
-  padding: 1rem 2rem 1rem 2rem; }
-
-.button.back {
-  font-size: 18px;
-  color: #36A3EF;
-  letter-spacing: 0; }
