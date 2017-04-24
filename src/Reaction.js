@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {
   Switch,
   Route,
+  Link,
 } from 'react-router-dom';
 import './Reaction.css';
 
@@ -39,7 +40,23 @@ class Reaction extends Component {
                   reaction={reaction}/>}>
             </Route>
             <Route path={`${match.url}`}
-              component={descriptions[reactionId] || 'sin descripción'}>
+              component={() => {
+                console.log(descriptions[reactionId]);
+                const component = descriptions[reactionId];
+                return (
+                  <div className="card">
+                    <div className="card-content">
+                      {React.createElement(component, null)}
+                    </div>
+                    <footer className="card-footer">
+                      <Link to={`${match.url}/practice`}
+                      className="card-footer-item button is-large is-info">
+                        Haz click aquí para practicar
+                      </Link>
+                    </footer>
+                  </div>
+                );
+              }}>
             </Route>
           </Switch>
         </div>
