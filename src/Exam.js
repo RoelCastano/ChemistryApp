@@ -32,10 +32,50 @@ class Exam extends Component {
     super();
     const reactionKeys = Object.keys(reactions);
     this.state = {
-      reactionKeys,
       reactions,
+      reactionKeys,
+      gradeAnswer: id => id,
+      shuffledOptions: [],
+      reactionId: '',
+      reaction: {},
+      answers: [],
       index: -1,
     };
+  }
+
+  shuffle(a) {
+    for (let i = a.length; i; i--) {
+      let j = Math.floor(Math.random() * i);
+      [a[i - 1], a[j]] = [a[j], a[i - 1]];
+    }
+  }
+
+  updateReaction = (index) => {
+    const {
+      reactions,
+      reactionKeys,
+    } = this.state;
+
+    const reactionId = reactionKeys[index];
+    const { reaction, options } = reactions[reactionId] || {};
+
+    let shuffledOptions = [];
+    let gradeAnswer = i => i;
+    if (typeof options !== 'undefined') {
+      shuffledOptions = [...options];
+      this.shuffle(shuffledOptions);
+      const correctAnswer = shuffledOptions.indexOf(options[0]);
+      gradeAnswer = this.updateExamResults(correctAnswer, shuffledOptions);
+    }
+
+    this.setState({
+      ...this.state,
+      shuffledOptions,
+      gradeAnswer,
+      reactionId,
+      reaction,
+      index,
+    });
   }
 
   updateIndex = change => {
@@ -44,28 +84,50 @@ class Exam extends Component {
       reactionKeys,
     } = this.state;
     let nextIndex = index + change;
-    if (nextIndex >= reactionKeys.length ||
-        nextIndex < 0) {
-      nextIndex = index;
+    if (nextIndex < reactionKeys.length &&
+        nextIndex >= 0) {
+      this.setState({
+        ...this.state,
+        index: nextIndex,
+      });
+      this.updateReaction(nextIndex);
     }
-    this.setState({
-      ...this.state,
-      index: nextIndex,
-    });
   }
 
-  nextIndex = () => this.updateIndex(1);
-  previousIndex = () => this.updateIndex(-1);
+  nextIndex = () => this.updateIndex(1)
+  previousIndex = () => this.updateIndex(-1)
+  skipQuestion = () => {
+    const { index, answers } = this.state;
+    answers[index] = { correct: false, answer: '' };
+    this.nextIndex();
+  }
+
+  updateExamResults = (correctAnswer, options) => (selected) => {
+    const { index, answers } = this.state;
+    const nextAnswers = [...answers];
+    nextAnswers[index] = {
+       answer: options[selected],
+       correct: correctAnswer === selected,
+    };
+    this.setState({
+      ...this.state,
+      answers: nextAnswers,
+    });
+  }
 
   render() {
     const {
       index,
-      reactions,
-      reactionKeys,
+      answers,
+      reaction,
+      reactionId,
+      gradeAnswer,
+      shuffledOptions,
     } = this.state;
 
-    const reactionId = reactionKeys[index];
-    const { reaction, options } = reactions[reactionId] || {};
+    const isUnanswered = typeof answers[index] === 'undefined' ||
+      answers[index].answer === '';
+
 
     return (
       <div className="section background">
@@ -78,9 +140,10 @@ class Exam extends Component {
               <div className="exam-question">
                 <DragDropReactionQuestion
                   {...{
+                    droppedCallback: gradeAnswer,
+                    options: shuffledOptions,
                     reactionId,
                     reaction,
-                    options,
                   }}
                 />
               </div>
@@ -95,10 +158,16 @@ class Exam extends Component {
                 </a>
               </div>
               <div className="card-footer-item">
-                <a className="button is-fullwidth is-large is-info is-inverted"
-                  onClick={this.nextIndex}>
-                  Siguiente
-                </a>
+                {isUnanswered ?
+                  <a className="button is-fullwidth is-large is-danger is-inverted"
+                  onClick={this.skipQuestion}>
+                    Saltar pregunta
+                  </a>:
+                  <a className="button is-fullwidth is-large is-info is-inverted"
+                    onClick={this.nextIndex}>
+                    Siguiente
+                  </a>
+                }
               </div>
             </footer> :
               ''
