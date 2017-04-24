@@ -20,7 +20,6 @@ class App extends Component {
   reactionFromProps = props =>
     reactions[props.match.params.reactionId];
 
-
   render() {
     return (
       <Router>
@@ -35,8 +34,7 @@ class App extends Component {
             </Route>
             <Route path="/exam"
               component={props =>
-                <Exam {...props}
-                  reactions={reactions} />
+                <Exam {...props} />
               }>
             </Route>
             <Route path="/" component={Home}></Route>
