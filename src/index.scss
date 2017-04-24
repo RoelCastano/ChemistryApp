@@ -22,8 +22,16 @@ $success: $green;
 $warning: $yellow;
 
 $link: $primary;
-
+$body-background: #EAEAEA;
+$background: #EAEAEA;
 @import "bulma";
+
+////////////////////////////////////////////////
+////////////////////////////////////////////////
+// 4. Lists and maps
+
+
+$sizes: $size-1 $size-2 $size-3 $size-4 $size-5 $size-6 !default
 
 // 4. Lists and maps after overriding bulma's variables from
 // utilities/variables.sass

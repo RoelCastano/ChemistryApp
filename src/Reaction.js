@@ -31,9 +31,6 @@ class Reaction extends Component {
     return (
       <div className="section background">
         <div className="displayBox">
-          <p>
-            Hello from Reaction {reactionId}.
-          </p>
           <Switch>
             <Route path={`${match.url}/practice`}
               component={() =>

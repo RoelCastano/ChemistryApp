@@ -6,8 +6,8 @@ class Home extends Component {
   render() {
     return (
       <div className="section background">
-        <div className="displayBox">
-          <div className="content">
+        <div className="displayBox card">
+          <div className="content card-content">
             <div className="container is-fluid">
               <p className="title">
                   Reacción de obtención de analgésicos

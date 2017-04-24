@@ -8,7 +8,7 @@ class Diazepam extends Component {
       <div className="content">
       <h2>Valium</h2>
       <h4>(Diazepam)</h4>
-      <img src={image}/>
+      <img alt="Reaction" src={image}/>
         <p>
           En esta reacción de sustitución electrofílica el ácido de lewis AlCl3 
           toma el cloro generando un carbonation donde el reactivo se unirá. 

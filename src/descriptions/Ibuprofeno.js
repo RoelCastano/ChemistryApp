@@ -13,12 +13,12 @@ class Ibuprofeno extends Component {
       <div className="content">
       <h2>Advil</h2>
       <h4>(Ibuprofeno)</h4>
-      <img src={image1}/>
-      <img src={image2}/>
-      <img src={image3}/>
-      <img src={image4}/>
-      <img src={image5}/>
-      <img src={image6}/>
+      <img alt="Reaction" src={image1}/>
+      <img alt="Reaction" src={image2}/>
+      <img alt="Reaction" src={image3}/>
+      <img alt="Reaction" src={image4}/>
+      <img alt="Reaction" src={image5}/>
+      <img alt="Reaction" src={image6}/>
       <div className="desc_content">
         <ol>
 <li>En los pasos de estas reacciones puedes observar una sustitución electrofílica en la primera etapa.</li>
