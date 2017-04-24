@@ -9,13 +9,15 @@ const StartMessage = props => (
   <div>
     <div className="columns">
       <div className="column">
-        <p className="title">
+        <p className="title is-2">
             ¿Estás listo para un examen rápido?
         </p>
-        <p className="subtitle">
+        <br />
+        <p className="subtitle is-4">
             Hemos aprendido sobre 5 diferentes analgésicos y hemos practicado.
             Ahora estás listo para demostrar tus conocimientos.
         </p>
+        <br />
       </div>
     </div>
     <div className="columns buttons">
