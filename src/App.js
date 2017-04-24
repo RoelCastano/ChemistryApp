@@ -16,6 +16,11 @@ import reactions from './reaction_resources';
 const reactions_keys = Object.keys(reactions);
 
 class App extends Component {
+
+  reactionFromProps = props =>
+    reactions[props.match.params.reactionId];
+
+
   render() {
     return (
       <Router>
@@ -25,10 +30,14 @@ class App extends Component {
             <Route path="/reaction/:reactionId"
               component={props =>
                 <Reaction {...props}
-                  reaction={reactions[props.match.params.reactionId]}/>
+                  reaction={this.reactionFromProps(props)} />
               }>
             </Route>
-            <Route path="/exam" component={Exam}>
+            <Route path="/exam"
+              component={props =>
+                <Exam {...props}
+                  reactions={reactions} />
+              }>
             </Route>
             <Route path="/" component={Home}></Route>
           </Switch>
