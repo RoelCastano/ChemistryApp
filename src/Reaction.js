@@ -13,18 +13,20 @@ import Tylenol from './descriptions/Tylenol';
 import Diazepam from './descriptions/Diazepam';
 import Librium from './descriptions/Librium';
 
+const descriptions = {
+  Librium,
+  Aspirin: Aspirina,
+  Advil: Ibuprofeno,
+  Valium: Diazepam,
+  Paracetamol: Tylenol,
+};
+
+
 class Reaction extends Component {
   render() {
     const match = this.props.match;
     const reactionId = this.props.match.params.reactionId;
-
-    const reactions = {
-      'reaction_1': Aspirina,
-      'reaction_2': Diazepam,
-      'reaction_3': Librium,
-      'reaction_4': Ibuprofeno,
-      'reaction_5': Tylenol,
-    };
+    const reaction = this.props.reaction;
 
     return (
       <div className="section background">
@@ -34,10 +36,13 @@ class Reaction extends Component {
           </p>
           <Switch>
             <Route path={`${match.url}/practice`}
-              component={ReactionPractice}>
+              component={() =>
+                <ReactionPractice
+                  reactionId={reactionId}
+                  reaction={reaction}/>}>
             </Route>
             <Route path={`${match.url}`}
-              component={reactions[reactionId]}>
+              component={descriptions[reactionId] || 'sin descripción'}>
             </Route>
           </Switch>
         </div>
