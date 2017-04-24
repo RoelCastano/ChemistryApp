@@ -77,10 +77,12 @@ class TopNavbar extends Component {
 
         <div className={`nav-right nav-menu ${isActive} light-text`}>
           <NavLink to={'/exam'}
-            className="nav-item is-tab is-info"
+            className="nav-item is-tab"
             activeClassName="is-active"
-            style={{color:"white"}}>
-            Exam
+            >
+            <p style={{color:"white"}} className="title is-3">
+              Examen
+            </p>
           </NavLink>
 
         </div>
