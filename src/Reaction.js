@@ -7,16 +7,25 @@ import './Reaction.css';
 
 import ReactionPractice from './ReactionPractice';
 
-const Description = props => (
-  <section className='section reaction-description'>
-    <p>Reaction Description</p>
-  </section>
-);
+import Aspirina from './descriptions/Aspirina';
+import Ibuprofeno from './descriptions/Ibuprofeno';
+import Tylenol from './descriptions/Tylenol';
+import Diazepam from './descriptions/Diazepam';
+import Librium from './descriptions/Librium';
 
 class Reaction extends Component {
   render() {
     const match = this.props.match;
     const reactionId = this.props.match.params.reactionId;
+
+    const reactions = {
+      'reaction_1': Aspirina,
+      'reaction_2': Diazepam,
+      'reaction_3': Librium,
+      'reaction_4': Ibuprofeno,
+      'reaction_5': Tylenol,
+    };
+
     return (
       <div className="section background">
         <div className="displayBox">
@@ -28,7 +37,7 @@ class Reaction extends Component {
               component={ReactionPractice}>
             </Route>
             <Route path={`${match.url}`}
-              component={Description}>
+              component={reactions[reactionId]}>
             </Route>
           </Switch>
         </div>
