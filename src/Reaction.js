@@ -13,6 +13,14 @@ import Tylenol from './descriptions/Tylenol';
 import Diazepam from './descriptions/Diazepam';
 import Librium from './descriptions/Librium';
 
+const descriptions = {
+  Librium,
+  Aspirin: Aspirina,
+  Advil: Ibuprofeno,
+  Valium: Diazepam,
+  Paracetamol: Tylenol,
+};
+
 class Reaction extends Component {
   render() {
     const match = this.props.match;
@@ -33,7 +41,7 @@ class Reaction extends Component {
                   reaction={reaction}/>}>
             </Route>
             <Route path={`${match.url}`}
-              component={reactions[reactionId]}>
+              component={descriptions[reactionId] || 'sin descripción'}>
             </Route>
           </Switch>
         </div>
