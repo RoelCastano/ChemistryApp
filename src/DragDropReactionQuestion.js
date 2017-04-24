@@ -93,9 +93,8 @@ const answerSource = {
     const dropResult = monitor.getDropResult();
 
     if (dropResult) {
-      window.alert( // eslint-disable-line no-alert
-        `You dropped option ${item.name} into ${dropResult.name}!`,
-      );
+      console.log(`Dropped ${item.name} in ${dropResult.name}`);
+      props.droppedCallback(item.name);
     }
   },
 };
@@ -109,14 +108,17 @@ const DraggableAnswer = DragSource(
 )(DragAnswer);
 
 class DragDropReactionQuestion extends Component {
+
   render () {
     const {
+      droppedCallback,
       instructions,
       reactionId,
       question,
       reaction,
       options,
     } = this.props;
+
     return (
       <div>
         <div
@@ -147,7 +149,12 @@ class DragDropReactionQuestion extends Component {
           className="options columns is-multiline">
           {options.map((option, i) =>
             <div key={i} className="column is-half">
-              <DraggableAnswer index={i} option={option} />
+              <DraggableAnswer
+                {...{
+                  droppedCallback,
+                  option,
+                  index: i,
+                }} />
             </div>
           )}
         </div>
