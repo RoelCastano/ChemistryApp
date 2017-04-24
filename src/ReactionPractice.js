@@ -9,13 +9,17 @@ class ReactionPractice extends Component {
       reactionId,
       reaction: { reaction, options },
     } = this.props;
+    const question = '¿Qué debe de ir en el espacio?';
+    const instructions = 'Usa tu cursor para arrastrar la opción correcta al recuadrio.';
     return (
       <div className="section">
         <div className="card">
           <div className="card-content">
           <DragDropReactionQuestion
             {...{
+              instructions,
               reactionId,
+              question,
               reaction,
               options,
             }}
