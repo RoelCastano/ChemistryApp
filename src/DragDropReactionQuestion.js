@@ -40,34 +40,59 @@ class QuestionDropBin extends Component {
     };
   }
 
+  selectImage = img =>
+    this.setState({
+      selectedImage: img,
+    })
+
+  clearImage = () => this.setState({
+    selectedImage: null,
+  })
+
   render() {
     const {
       canDrop, isOver, connectDropTarget
     } = this.props;
     const isActive = canDrop && isOver;
     let backgroundColor = '#222';
+    let opacity = 1;
     if (isActive) {
       backgroundColor = 'darkgreen';
+      opacity = 0.3;
     } else if(canDrop) {
       backgroundColor = 'darkkhaki';
+      opacity = 0.8;
     }
     return connectDropTarget(
-      <div className=""
-        style={{ ...dropBinStyle, backgroundColor }}>
-        <p
-          style={{...dropBinPStyle}} className="title is-4">
-          {isActive ?
-            'Suelta para seleccionar' :
-            'Arrastra imagen aquí'
-          }
-        </p>
+      <div>
+      {this.state.selectedImage === null ?
+        <div
+          style={{ ...dropBinStyle, backgroundColor }}>
+          <p
+            style={{...dropBinPStyle}} className="title is-4">
+            {isActive ?
+              'Suelta para seleccionar' :
+              'Arrastra imagen aquí'
+            }
+          </p>
+        </div> :
+        <figure className="image">
+          <img style={{ opacity }} alt={`Selected option`}
+            className="option-img" src={this.state.selectedImage} />
+        </figure>
+      }
       </div>
     );
   }
 }
 const answerTarget = {
-  drop() {
-    return { name: 'Answerbin' };
+  drop(props, monitor, component) {
+    console.log("Drops it");
+    console.log(component);
+    return {
+      name: 'Answerbin',
+      selectImage: component.selectImage,
+    };
   },
 };
 const QuestionDroppableBin = DropTarget(
@@ -115,7 +140,8 @@ const answerSource = {
     const dropResult = monitor.getDropResult();
 
     if (dropResult) {
-      console.log(`Dropped ${item.name} in ${dropResult.name}`);
+      //console.log(`Dropped ${item.src} in ${dropResult.name}`);
+      dropResult.selectImage(item.src);
       props.droppedCallback(item.name);
     }
   },
