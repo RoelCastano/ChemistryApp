@@ -6,9 +6,9 @@ import reactions from './reaction_resources';
 import DragDropReactionQuestion from './DragDropReactionQuestion';
 
 const StartMessage = props => (
-  <div className="displayBox">
-    <div className="content">
-      <div className="container is-fluid">
+  <div>
+    <div className="columns">
+      <div className="column">
         <p className="title">
             ¿Estás listo para un examen rápido?
         </p>
@@ -18,8 +18,9 @@ const StartMessage = props => (
         </p>
       </div>
     </div>
-    <div className="buttons">
-      <a className="button continue"
+    <div className="columns buttons">
+      <a
+        className="column button is-half is-offset-one-quarter is-info is-medium is-fullwidth"
         onClick={props.nextIndex}>
         COMENZAR
       </a>
