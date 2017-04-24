@@ -37,8 +37,8 @@ class QuestionDropBin extends Component {
     return connectDropTarget(
       <div style={{ ...dropBinStyle, backgroundColor }}>
         {isActive ?
-          'Release to drop' :
-          'Drag a box here'
+          'Suelta para seleccionar' :
+          'Arrastra imagen aquí'
         }
       </div>
     );
@@ -93,9 +93,8 @@ const answerSource = {
     const dropResult = monitor.getDropResult();
 
     if (dropResult) {
-      window.alert( // eslint-disable-line no-alert
-        `You dropped option ${item.name} into ${dropResult.name}!`,
-      );
+      console.log(`Dropped ${item.name} in ${dropResult.name}`);
+      props.droppedCallback(item.name);
     }
   },
 };
@@ -109,14 +108,17 @@ const DraggableAnswer = DragSource(
 )(DragAnswer);
 
 class DragDropReactionQuestion extends Component {
+
   render () {
     const {
+      droppedCallback,
       instructions,
       reactionId,
       question,
       reaction,
       options,
     } = this.props;
+
     return (
       <div>
         <div
@@ -147,18 +149,14 @@ class DragDropReactionQuestion extends Component {
           className="options columns is-multiline">
           {options.map((option, i) =>
             <div key={i} className="column is-half">
-              <DraggableAnswer index={i} option={option} />
+              <DraggableAnswer
+                {...{
+                  droppedCallback,
+                  option,
+                  index: i,
+                }} />
             </div>
           )}
-        </div>
-        <div className="controls columns">
-          <div
-            className="column is-half is-offset-one-quarter">
-            <a
-              className="button is-fullwidth is-large is-primary">
-              is-one-quarter
-            </a>
-          </div>
         </div>
       </div>
     );

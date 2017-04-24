@@ -1,11 +1,24 @@
 import React, { Component } from 'react';
 import './Desc.css';
+import image1 from '../reactions/Advil/AdvilComplete.png';
+import image2 from '../reactions/Advil/AdvilStep2.png';
+import image3 from '../reactions/Advil/AdvilStep3.png';
+import image4 from '../reactions/Advil/AdvilStep4.png';
+import image5 from '../reactions/Advil/AdvilStep5.png';
+import image6 from '../reactions/Advil/AdvilStep6.png';
 
 class Ibuprofeno extends Component {
   render() {
     return (
-      <div className="descriptions">
-      <h2>IBUPROFENO</h2>
+      <div className="content">
+      <h2>Advil</h2>
+      <h4>(Ibuprofeno)</h4>
+      <img alt="Reaction" src={image1}/>
+      <img alt="Reaction" src={image2}/>
+      <img alt="Reaction" src={image3}/>
+      <img alt="Reaction" src={image4}/>
+      <img alt="Reaction" src={image5}/>
+      <img alt="Reaction" src={image6}/>
       <div className="desc_content">
         <ol>
 <li>En los pasos de estas reacciones puedes observar una sustitución electrofílica en la primera etapa.</li>
