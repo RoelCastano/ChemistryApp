@@ -147,7 +147,7 @@ class DragDropReactionQuestion extends Component {
         </div>
         <div
           className="problem columns">
-          <div className="column is-one-third">
+          <div className="column is-one-third questionBox">
             <QuestionDroppableBin />
           </div>
           <div className="column is-two-thirds">
