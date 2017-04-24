@@ -115,7 +115,7 @@ class Exam extends Component {
     }
   }
 
-  gradeExam = updateAppExamResults => () => {
+  gradeExam = () => {
     const { answers, reactionKeys } = this.state;
     if (answers.length < reactionKeys.length) {
       answers.push({ correct: false, answer: '' });
@@ -128,10 +128,6 @@ class Exam extends Component {
       result,
     });
     this.nextIndex();
-    updateAppExamResults({
-      answers,
-      result,
-    });
   }
 
   updateReaction = (index) => {
@@ -212,7 +208,11 @@ class Exam extends Component {
       shuffledOptions,
     } = this.state;
 
-    const gradeAndUpdate = this.gradeExam(this.props.updateAppExamResults);
+    const updateApp = () =>
+      this.props.updateAppExamResults({
+        result: this.state.result,
+        answers: this.state.answers,
+      });
     const isUnanswered = typeof answers[index] === 'undefined' ||
       answers[index].answer === '';
 
@@ -257,11 +257,12 @@ class Exam extends Component {
                       actions={{
                         next: this.nextIndex,
                         skip: this.skipQuestion,
-                        grade: gradeAndUpdate,
+                        grade: this.gradeExam,
                       }} />
                   </div>] :
                   [<div key="restart" className="card-footer-item">
                    <Link to={'/exam'}
+                      onClick={updateApp}
                       className="button is-fullwidth is-large is-info is-inverted"
                       >
                       Iniciar de nuevo.
@@ -269,6 +270,7 @@ class Exam extends Component {
                   </div>,
                   <div key="home" className="card-footer-item">
                     <Link to={'/'}
+                      onClick={updateApp}
                       className="button is-fullwidth is-large is-info is-inverted"
                       >
                       Ir al inicio.
