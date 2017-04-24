@@ -25,6 +25,15 @@ class ReactionPractice extends Component {
             }}
             />
           </div>
+          <footer className="card-footer">
+            <div
+              className="card-footer-item is-paddingless">
+              <a
+                className="button is-fullwidth is-large is-info">
+                Da click aquí para revisar tu respuesta
+              </a>
+            </div>
+          </footer>
         </div>
       </div>
     );

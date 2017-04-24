@@ -151,15 +151,6 @@ class DragDropReactionQuestion extends Component {
             </div>
           )}
         </div>
-        <div className="controls columns">
-          <div
-            className="column is-half is-offset-one-quarter">
-            <a
-              className="button is-fullwidth is-large is-primary">
-              is-one-quarter
-            </a>
-          </div>
-        </div>
       </div>
     );
   }
