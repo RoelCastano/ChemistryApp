@@ -12,7 +12,7 @@ class Exam extends Component {
                   ¿Estás listo para un examen rápido?
               </p>
               <p className="subtitle">
-                  Hemos aprendido sobre 5 diferentes analgésicos y hemos practicado. 
+                  Hemos aprendido sobre 5 diferentes analgésicos y hemos practicado.
                   Ahora estás listo para demostrar tus conocimientos.
               </p>
             </div>
