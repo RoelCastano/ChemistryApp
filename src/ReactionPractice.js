@@ -16,18 +16,31 @@ class ReactionPractice extends Component {
     this.state = {
       shuffledOptions,
       correctAnswer,
+      modalIsActive: false,
       selected: -1,
+      modalMsg: '',
     };
   }
 
   updateSelected = selected =>
     this.setState({...this.state, selected});
 
+  toggleModal = () => this.setState({
+    ...this.state,
+    modalIsActive: !this.state.modalIsActive,
+  })
+
   checkAnswer = () => {
     const { selected, correctAnswer } = this.state;
     const correct = selected === correctAnswer;
-    window.alert(`Tu respuesta seleccionada es ${correct ? '':'in'}correcta.`);
-    this.setState({...this.state, selected: -1});
+    const msg = `Tu respuesta seleccionada es ${correct ? '':'in'}correcta.`;
+    console.log(msg);
+    this.setState({
+      ...this.state,
+      selected: -1,
+      modalIsActive: !this.state.modalIsActive,
+      modalMsg: msg,
+    });
   }
 
   shuffle(a) {
@@ -44,12 +57,29 @@ class ReactionPractice extends Component {
     } = this.props;
     const {
       selected,
+      modalIsActive,
+      modalMsg,
     } = this.state;
 
     const question = '¿Qué debe de ir en el espacio?';
     const instructions = 'Usa tu cursor para arrastrar la opción correcta al recuadro.';
     return (
       <div className="section">
+        <div
+          className={`modal ${modalIsActive ? 'is-active':''}`}>
+          <div className="modal-background"></div>
+          <div className="modal-content">
+            <div className="card">
+              <div className="card-content">
+                <h1 className="title is-1">
+                  { modalMsg }
+                </h1>
+              </div>
+            </div>
+          </div>
+          <button onClick={this.toggleModal}
+            className="modal-close"></button>
+        </div>
         <div className="card">
           <div className="card-content">
           <DragDropReactionQuestion
