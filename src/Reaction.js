@@ -22,6 +22,8 @@ const descriptions = {
 };
 
 class Reaction extends Component {
+  
+
   render() {
     const match = this.props.match;
     const reactionId = this.props.match.params.reactionId;
@@ -44,6 +46,9 @@ class Reaction extends Component {
               component={descriptions[reactionId] || 'sin descripción'}>
             </Route>
           </Switch>
+          <div className="buttons">
+            <a href="/reaction/Librium/practice" className="button continue">Practice</a>
+          </div>
         </div>
       </div>
     );
