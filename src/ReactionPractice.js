@@ -70,10 +70,7 @@ class ReactionPractice extends Component {
     const instructions = 'Usa tu cursor para arrastrar la opción correcta al recuadro.';
 
     return (
-      <div className="section">
-        <Link to={`reaction/${reactionId}`} className="card-footer-item button is-large is-info">
-          Descripción
-        </Link>
+      <div className="section is-fullwidth is-marginless is-paddingless">
         <div
           className={`modal ${modalIsActive ? 'is-active':''}`}>
           <div className="modal-background"></div>
@@ -88,7 +85,12 @@ class ReactionPractice extends Component {
             </div>
           </div>
         </div>
-        <div className="card">
+        <div className="card is-marginless is-paddingless">
+          <header className="card-header">
+            <Link to={`reaction/${reactionId}`} className="card-footer-item button is-large is-info">
+              Descripción
+            </Link>
+          </header>
           <div className="card-content">
           <DragDropReactionQuestion
             {...{

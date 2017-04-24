@@ -32,6 +32,14 @@ const optionStyle = {
   float: 'left',
 };
 class QuestionDropBin extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+      selectedImage: null,
+    };
+  }
+
   render() {
     const {
       canDrop, isOver, connectDropTarget
@@ -98,6 +106,7 @@ const answerSource = {
   beginDrag(props) {
     return {
       name: props.index,
+      src: props.option,
     };
   },
 
