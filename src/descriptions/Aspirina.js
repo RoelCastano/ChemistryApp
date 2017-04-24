@@ -11,6 +11,7 @@ class Aspirina extends Component {
           <h4>(Ácido acetilsalisilico)</h4>
           <div className="desc-images">
             <img alt="Reaction" src={image}/>
+            <img className="reactionImage" alt="Reaction" src={image}/>
           </div>
         </div>
         <p>
