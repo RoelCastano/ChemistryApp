@@ -38,9 +38,10 @@ class ReactionPractice extends Component {
               </div>
             </div>
             <div className="controls columns">
-              <div className="column is-half is-offset-half">
+              <div
+                className="column is-half is-offset-one-quarter">
                 <a
-                  className="button is-large is-primary is-pulled-right">
+                  className="button is-fullwidth is-large is-primary">
                   is-one-quarter
                 </a>
               </div>

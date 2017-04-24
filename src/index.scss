@@ -5,7 +5,7 @@ body {
 }
 
 @import "functions";
-@import "variables";
+@import "my-variables";
 
 // http://www.cssdrive.com/imagepalette/index.php
 $green: #b2c19c;
@@ -24,3 +24,7 @@ $warning: $yellow;
 $link: $primary;
 
 @import "bulma";
+
+// 4. Lists and maps after overriding bulma's variables from
+// utilities/variables.sass
+$colors: (white: ($white, $black), black: ($black, $white), light: ($light, $light-invert), dark: ($dark, $dark-invert), primary: ($primary, $primary-invert), info: ($info, $info-invert), success: ($success, $success-invert), warning: ($warning, $warning-invert), danger: ($danger, $danger-invert)) !default
