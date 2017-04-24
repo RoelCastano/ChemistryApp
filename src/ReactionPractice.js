@@ -19,18 +19,33 @@ class ReactionPractice extends Component {
     this.state = {
       shuffledOptions,
       correctAnswer,
+      modalIsActive: false,
       selected: -1,
+      modalMsg: '',
+      modalClass: ' is-danger',
     };
   }
 
   updateSelected = selected =>
     this.setState({...this.state, selected});
 
+  toggleModal = () => this.setState({
+    ...this.state,
+    modalIsActive: !this.state.modalIsActive,
+  })
+
   checkAnswer = () => {
     const { selected, correctAnswer } = this.state;
     const correct = selected === correctAnswer;
-    window.alert(`Tu respuesta seleccionada es ${correct ? '':'IN'}CORRECTA.`);
-    this.setState({...this.state, selected: -1});
+    const msg = `Tu respuesta seleccionada es ${correct ? '':'IN'}CORRECTA.`;
+    console.log(msg);
+    this.setState({
+      ...this.state,
+      selected: -1,
+      modalClass: correct ? ' is-success' : ' is-danger',
+      modalIsActive: !this.state.modalIsActive,
+      modalMsg: msg,
+    });
   }
 
   shuffle(a) {
@@ -47,16 +62,36 @@ class ReactionPractice extends Component {
     } = this.props;
     const {
       selected,
+      modalIsActive,
+      modalMsg,
     } = this.state;
 
     const question = '¿Qué debe de ir en el espacio?';
     const instructions = 'Usa tu cursor para arrastrar la opción correcta al recuadro.';
 
     return (
+<<<<<<< HEAD
       <div className="section">
         <Link to={`reaction/${reactionId}`} className="card-footer-item button is-large is-info">
           Descripción
         </Link>
+=======
+      <div>
+        <div
+          className={`modal ${modalIsActive ? 'is-active':''}`}>
+          <div className="modal-background"></div>
+          <div className="modal-content">
+            <div
+              className={`notification ${this.state.modalClass}`}>
+              <button onClick={this.toggleModal}
+                className="delete is-large"></button>
+                <h1 className="title is-1">
+                  { modalMsg }
+                </h1>
+            </div>
+          </div>
+        </div>
+>>>>>>> 0eab825a3e34b4602fc005f011fd49808fcd53d6
         <div className="card">
           <div className="card-content">
           <DragDropReactionQuestion
