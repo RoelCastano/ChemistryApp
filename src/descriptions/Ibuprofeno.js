@@ -6,7 +6,7 @@ class Ibuprofeno extends Component {
     return (
       <div className="descriptions">
       <h2>IBUPROFENO</h2>
-        <p>
+      <div className="desc_content">
         <ol>
 <li>En los pasos de estas reacciones puedes observar una sustitución electrofílica en la primera etapa.</li>
 <li>En el segundo paso la carga parcial negativa del etil-2-cloroacetato forman un enlace con el grupo  carbonilo.</li>
@@ -15,8 +15,7 @@ class Ibuprofeno extends Component {
 <li>En esta etapa el medio ácido dona un protón al OH unido al nitrógeno, volviéndolo en una molécula de agua ideal para ser un grupo saliente. Finalmente esto crea una triple enlace Carbono Nitrógeno conocido como nitrilo.</li>
 <li>El agua opera como un ácido en este paso haciendo una reacción ácido base con el nitrógeno del nitrilo y sustituyendo dentro del compuesto principal en forma de Ácido Carboxílico</li>
 </ol>
-        </p>
-
+</div>
       </div>
     );
   }
