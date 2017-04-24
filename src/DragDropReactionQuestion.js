@@ -37,8 +37,8 @@ class QuestionDropBin extends Component {
     return connectDropTarget(
       <div style={{ ...dropBinStyle, backgroundColor }}>
         {isActive ?
-          'Release to drop' :
-          'Drag a box here'
+          'Suelta para seleccionar' :
+          'Arrastra imagen aquí'
         }
       </div>
     );
