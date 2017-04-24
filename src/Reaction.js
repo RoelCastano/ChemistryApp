@@ -21,6 +21,7 @@ const descriptions = {
   Paracetamol: Tylenol,
 };
 
+
 class Reaction extends Component {
   render() {
     const match = this.props.match;
