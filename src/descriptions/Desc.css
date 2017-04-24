@@ -8,6 +8,10 @@
   font-weight: 600;
   line-height: 1.25; }
 
+.desc-header > h2 {
+  font-size: 35px !important;
+  font-weight: bold !important; }
+
 .descriptions p {
   margin-left: 40px;
   margin-right: 40px;
@@ -19,3 +23,12 @@
   margin-right: 40px;
   margin-top: 20px;
   margin-bottom: 20px; }
+
+.desc-header {
+  text-align: center; }
+
+.desc-images img {
+  border-bottom: 2px solid #eaecef;
+  margin-bottom: 20px;
+  line-height: 1.25;
+  padding-bottom: 20px; }

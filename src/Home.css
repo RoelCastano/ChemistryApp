@@ -1,2 +1,11 @@
 .section.background {
   background-color: #EAEAEA; }
+
+.card {
+  margin-left: 40px;
+  margin-right: 40px; }
+
+.title {
+  text-align: center;
+  border-bottom: 2px solid #eaecef;
+  padding-bottom: 15px; }

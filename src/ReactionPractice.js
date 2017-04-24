@@ -37,7 +37,7 @@ class ReactionPractice extends Component {
   checkAnswer = () => {
     const { selected, correctAnswer } = this.state;
     const correct = selected === correctAnswer;
-    const msg = `Tu respuesta seleccionada es ${correct ? '':'IN'}CORRECTA.`;
+    const msg = `${correct ? '':'IN'}CORRECTA.`;
     console.log(msg);
     this.setState({
       ...this.state,
