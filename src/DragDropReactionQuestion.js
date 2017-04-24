@@ -11,12 +11,21 @@ const defaultQuestion = '¿Qué debe de ir en el espacio?';
 const defaultInstructions = 'Usa tu cursor para arrastrar la opción correcta al recuadro.';
 
 const dropBinStyle = {
-  height: '12rem',
-  width: '12rem',
+  height: '100%',
+  width: '100%',
   marginRight: 'auto',
   marginBottom: 'auto',
   color: 'white',
   textAlign: 'center',
+};
+const dropBinPStyle = {
+  width: '100%',
+  height: '50%',
+  marginRight: 'auto',
+  marginBottom: 'auto',
+  marginTop: 'auto',
+  marginLeft: 'auto',
+  color: 'white',
 };
 const optionStyle = {
   cursor: 'move',
@@ -35,11 +44,15 @@ class QuestionDropBin extends Component {
       backgroundColor = 'darkkhaki';
     }
     return connectDropTarget(
-      <div style={{ ...dropBinStyle, backgroundColor }}>
-        {isActive ?
-          'Suelta para seleccionar' :
-          'Arrastra imagen aquí'
-        }
+      <div className=""
+        style={{ ...dropBinStyle, backgroundColor }}>
+        <p
+          style={{...dropBinPStyle}} className="title is-4">
+          {isActive ?
+            'Suelta para seleccionar' :
+            'Arrastra imagen aquí'
+          }
+        </p>
       </div>
     );
   }
