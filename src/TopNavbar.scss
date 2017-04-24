@@ -1,2 +1,11 @@
 nav.nav {
   background-color: #36A3EF; }
+
+nav.nav .nav-left {
+  justify-content: center; }
+
+nav.nav .nav-right {
+  justify-content: center; }
+
+nav.nav .nav-right .nav-item {
+  color: white; }
