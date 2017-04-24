@@ -88,14 +88,18 @@ class Exam extends Component {
           </div>
           {index >= 0 ?
             <footer className="card-footer">
-              <a className="card-footer-item"
-                onClick={this.previousIndex}>
-                Anterior
-              </a>
-              <a className="card-footer-item"
-                onClick={this.nextIndex}>
-                Siguiente
-              </a>
+              <div className="card-footer-item">
+                <a className="button is-fullwidth is-large is-info is-inverted"
+                  onClick={this.previousIndex}>
+                  Anterior
+                </a>
+              </div>
+              <div className="card-footer-item">
+                <a className="button is-fullwidth is-large is-info is-inverted"
+                  onClick={this.nextIndex}>
+                  Siguiente
+                </a>
+              </div>
             </footer> :
               ''
           }
