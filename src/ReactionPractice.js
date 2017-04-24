@@ -1,5 +1,16 @@
 import React, { Component } from 'react';
+import { DragDropContext } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
+
 import './ReactionPractice.css';
+
+class QuestionDropBin extends Component {
+  render() {
+    return (
+      <div>Hello</div>
+    );
+  }
+}
 
 class ReactionPractice extends Component {
   render() {
@@ -25,7 +36,7 @@ class ReactionPractice extends Component {
             <div
               className="problem columns">
               <div className="column is-one-third">
-                <code>is-one-third</code>
+                <QuestionDropBin />
               </div>
               <div className="column is-two-thirds">
                 <figure className="image">
@@ -62,4 +73,4 @@ class ReactionPractice extends Component {
   }
 }
 
-export default ReactionPractice;
+export default DragDropContext(HTML5Backend)(ReactionPractice);
