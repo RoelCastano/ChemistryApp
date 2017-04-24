@@ -13,20 +13,23 @@ class Home extends Component {
         <div className="displayBox card">
           <div className="content card-content">
             <p className="title is-2">
-              Reacción de obtención de analgésicos
+              <center> Reacción de Obtención de Analgésicos</center>
             </p>
-            <br />
             <p className="subtitle is-4">
               Esta unidad estudia los fundamentos de las reacciones para
               la obtención de fármacos analgésicos.
             </p>
             <br />
-            <div className="columns">
-              <Link to={`/reaction/${first}`}
-                className="column button is-half is-offset-one-quarter is-info is-medium is-fullwidth"
-                >
-                COMENZAR
-              </Link>
+            <div className="start-button">
+              <div className="columns">
+                <Link to={`/reaction/${first}`}
+                  className="column button is-half is-offset-one-quarter is-info is-medium is-fullwidth start-botton"
+                  >
+                  <div className="start-text">
+                  COMENZAR
+                  </div>
+                </Link>
+              </div>
             </div>
           </div>
         </div>

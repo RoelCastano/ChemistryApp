@@ -52,7 +52,7 @@ class Reaction extends Component {
                     <footer className="card-footer">
                       <Link to={`${match.url}/practice`}
                       className="card-footer-item button is-large is-info">
-                        Haz click aquí para practicar
+                        Practicar
                       </Link>
                     </footer>
                   </div>

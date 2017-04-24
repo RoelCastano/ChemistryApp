@@ -20,12 +20,16 @@ const StartMessage = props => (
         <br />
       </div>
     </div>
-    <div className="columns buttons">
-      <a
-        className="column button is-half is-offset-one-quarter is-info is-medium is-fullwidth"
-        onClick={props.nextIndex}>
-        COMENZAR
-      </a>
+    <div className="start-button">
+      <div className="columns buttons">
+        <a
+          className="column button is-half is-offset-one-quarter is-info is-medium is-fullwidth"
+          onClick={props.nextIndex}>
+          <div className="start-text">
+            COMENZAR
+          </div>
+        </a>
+      </div>
     </div>
   </div>
 );
