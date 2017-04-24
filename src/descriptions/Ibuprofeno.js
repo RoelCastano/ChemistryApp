@@ -4,7 +4,7 @@ import './Desc.css';
 class Ibuprofeno extends Component {
   render() {
     return (
-      <div className="descriptions">
+      <div className="content">
       <h2>IBUPROFENO</h2>
       <div className="desc_content">
         <ol>
