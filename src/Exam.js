@@ -69,7 +69,7 @@ class Exam extends Component {
 
     return (
       <div className="section background">
-        <div className="card">
+        <div className="card is-info">
           <div className="card-content">
             { index < 0 ?
               <StartMessage {...this.props}
