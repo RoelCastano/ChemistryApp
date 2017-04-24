@@ -19,6 +19,7 @@ class ReactionPractice extends Component {
       modalIsActive: false,
       selected: -1,
       modalMsg: '',
+      modalClass: ' is-danger',
     };
   }
 
@@ -38,6 +39,7 @@ class ReactionPractice extends Component {
     this.setState({
       ...this.state,
       selected: -1,
+      modalClass: correct ? ' is-success' : ' is-danger',
       modalIsActive: !this.state.modalIsActive,
       modalMsg: msg,
     });
@@ -69,16 +71,15 @@ class ReactionPractice extends Component {
           className={`modal ${modalIsActive ? 'is-active':''}`}>
           <div className="modal-background"></div>
           <div className="modal-content">
-            <div className="card">
-              <div className="card-content">
+            <div
+              className={`notification ${this.state.modalClass}`}>
+              <button onClick={this.toggleModal}
+                className="delete is-large"></button>
                 <h1 className="title is-1">
                   { modalMsg }
                 </h1>
-              </div>
             </div>
           </div>
-          <button onClick={this.toggleModal}
-            className="modal-close"></button>
         </div>
         <div className="card">
           <div className="card-content">

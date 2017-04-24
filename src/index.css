@@ -838,29 +838,29 @@ a.box:active {
   color: #1D6DDB; }
 
 .button.is-success {
-  background-color: #b2c19c;
+  background-color: #23d160;
   border-color: transparent;
   color: #fff; }
 
 .button.is-success:hover, .button.is-success.is-hovered {
-  background-color: #acbc94;
+  background-color: #22c65b;
   border-color: transparent;
   color: #fff; }
 
 .button.is-success:focus, .button.is-success.is-focused {
   border-color: transparent;
-  box-shadow: 0 0 0.5em rgba(178, 193, 156, 0.25);
+  box-shadow: 0 0 0.5em rgba(35, 209, 96, 0.25);
   color: #fff; }
 
 .button.is-success:active, .button.is-success.is-active {
-  background-color: #a6b78c;
+  background-color: #20bc56;
   border-color: transparent;
   box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.2);
   color: #fff; }
 
 .button.is-success.is-inverted {
   background-color: #fff;
-  color: #b2c19c; }
+  color: #23d160; }
 
 .button.is-success.is-inverted:hover {
   background-color: #f2f2f2; }
@@ -870,16 +870,16 @@ a.box:active {
 
 .button.is-success.is-outlined {
   background-color: transparent;
-  border-color: #b2c19c;
-  color: #b2c19c; }
+  border-color: #23d160;
+  color: #23d160; }
 
 .button.is-success.is-outlined:hover, .button.is-success.is-outlined:focus {
-  background-color: #b2c19c;
-  border-color: #b2c19c;
+  background-color: #23d160;
+  border-color: #23d160;
   color: #fff; }
 
 .button.is-success.is-outlined.is-loading:after {
-  border-color: transparent transparent #b2c19c #b2c19c !important; }
+  border-color: transparent transparent #23d160 #23d160 !important; }
 
 .button.is-success.is-inverted.is-outlined {
   background-color: transparent;
@@ -888,7 +888,7 @@ a.box:active {
 
 .button.is-success.is-inverted.is-outlined:hover, .button.is-success.is-inverted.is-outlined:focus {
   background-color: #fff;
-  color: #b2c19c; }
+  color: #23d160; }
 
 .button.is-warning {
   background-color: #FFCF44;
@@ -1272,7 +1272,7 @@ input[type="submit"].button {
 
 .input.is-success,
 .textarea.is-success {
-  border-color: #b2c19c; }
+  border-color: #23d160; }
 
 .input.is-warning,
 .textarea.is-warning {
@@ -1483,7 +1483,7 @@ input[type="submit"].button {
   color: #1D6DDB; }
 
 .help.is-success {
-  color: #b2c19c; }
+  color: #23d160; }
 
 .help.is-warning {
   color: #FFCF44; }
@@ -1797,7 +1797,7 @@ input[type="submit"].button {
   color: #fff; }
 
 .notification.is-success {
-  background-color: #b2c19c;
+  background-color: #23d160;
   color: #fff; }
 
 .notification.is-warning {
@@ -1868,10 +1868,10 @@ input[type="submit"].button {
   background-color: #1D6DDB; }
 
 .progress.is-success::-webkit-progress-value {
-  background-color: #b2c19c; }
+  background-color: #23d160; }
 
 .progress.is-success::-moz-progress-bar {
-  background-color: #b2c19c; }
+  background-color: #23d160; }
 
 .progress.is-warning::-webkit-progress-value {
   background-color: #FFCF44; }
@@ -1995,7 +1995,7 @@ input[type="submit"].button {
   color: #fff; }
 
 .tag.is-success {
-  background-color: #b2c19c;
+  background-color: #23d160;
   color: #fff; }
 
 .tag.is-warning {
@@ -2529,15 +2529,15 @@ input[type="submit"].button {
   color: #1a4d94; }
 
 .message.is-success {
-  background-color: #fafbf9; }
+  background-color: #f6fef9; }
 
 .message.is-success .message-header {
-  background-color: #b2c19c;
+  background-color: #23d160;
   color: #fff; }
 
 .message.is-success .message-body {
-  border-color: #b2c19c;
-  color: #4b4f46; }
+  border-color: #23d160;
+  color: #0e301a; }
 
 .message.is-warning {
   background-color: #fffcf5; }
@@ -4438,7 +4438,7 @@ label.panel-block:hover {
     border-top-color: rgba(255, 255, 255, 0.2); } }
 
 .hero.is-success {
-  background-color: #b2c19c;
+  background-color: #23d160;
   color: #fff; }
 
 .hero.is-success a,
@@ -4460,7 +4460,7 @@ label.panel-block:hover {
 
 @media screen and (max-width: 768px) {
   .hero.is-success .nav-menu {
-    background-color: #b2c19c; } }
+    background-color: #23d160; } }
 
 .hero.is-success a.nav-item,
 .hero.is-success .nav-item a:not(.button) {
@@ -4490,10 +4490,10 @@ label.panel-block:hover {
 .hero.is-success .tabs.is-boxed li.is-active a, .hero.is-success .tabs.is-boxed li.is-active a:hover, .hero.is-success .tabs.is-toggle li.is-active a, .hero.is-success .tabs.is-toggle li.is-active a:hover {
   background-color: #fff;
   border-color: #fff;
-  color: #b2c19c; }
+  color: #23d160; }
 
 .hero.is-success.is-bold {
-  background-image: linear-gradient(141deg, #a7b872 0%, #b2c19c 71%, #b9cea8 100%); }
+  background-image: linear-gradient(141deg, #12af2f 0%, #23d160 71%, #2ce28a 100%); }
 
 @media screen and (max-width: 768px) {
   .hero.is-success .nav-toggle span {
