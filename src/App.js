@@ -17,8 +17,22 @@ const reactions_keys = Object.keys(reactions);
 
 class App extends Component {
 
+  constructor() {
+    super();
+    this.state = {
+      exams: [],
+    };
+  }
+
+  updateExam = results => this.setState({
+    ...this.state,
+    exams: this.state.exams.concat(results),
+  });
+
   reactionFromProps = props =>
     reactions[props.match.params.reactionId];
+
+
 
   render() {
     return (
@@ -34,7 +48,7 @@ class App extends Component {
             </Route>
             <Route path="/exam"
               component={props =>
-                <Exam {...props} />
+                <Exam {...props} updateAppExamResults={this.updateExam} />
               }>
             </Route>
             <Route path="/" component={Home}></Route>

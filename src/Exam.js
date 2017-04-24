@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './Exam.css';
 
 import reactions from './reaction_resources';
@@ -26,6 +27,70 @@ const StartMessage = props => (
   </div>
 );
 
+const ResultsScreen = props => {
+  const correct = props.answers.filter(a => a.correct);
+  const roundedResult = Math.round(props.result);
+  const result = roundedResult <= 100 ? roundedResult : 100;
+  return (
+    <div className="results-screen">
+      <p className="title is-1">
+        Contestaste { correct.length } correctamente.
+      </p>
+      <p className="subtitle is-2">
+        Por lo tanto sacaste { result } de 100 puntos posibles.
+      </p>
+    </div>
+  );
+};
+
+const PreviousButton = props => {
+  const { action, text } = props;
+  return (
+    <a className="button is-fullwidth is-large is-info is-inverted"
+      onClick={action}>
+      { text }
+    </a>
+  );
+}
+
+const NextButton = props => {
+
+  const {
+    actions: { next, skip, grade },
+    index,
+    maxIndex,
+    isUnanswered,
+  } = props;
+  const isLastQuestion = index === maxIndex;
+  let msg = 'Saltar pregunta';
+  let classes = 'button is-fullwidth is-large';
+  let action = skip;
+  if (isUnanswered) {
+    msg = 'Saltar pregunta';
+    action = skip;
+    classes += ' is-danger is-inverted';
+    if (isLastQuestion) {
+      msg += ' y calificar';
+      action = grade;
+    }
+  } else {
+    msg = 'Siguiente';
+    action = next;
+    classes += ' is-info is-inverted';
+    if (isLastQuestion) {
+      classes = 'button is-fullwidth is-large is-success is-inverted';
+      msg = 'Calificar examen';
+      action = grade;
+    }
+  }
+  return (
+    <a className={classes}
+    onClick={action}>
+      {msg}
+    </a>
+  );
+}
+
 class Exam extends Component {
 
   constructor() {
@@ -50,6 +115,25 @@ class Exam extends Component {
     }
   }
 
+  gradeExam = updateAppExamResults => () => {
+    const { answers, reactionKeys } = this.state;
+    if (answers.length < reactionKeys.length) {
+      answers.push({ correct: false, answer: '' });
+    }
+    const questionWeight = 100.0 / reactionKeys.length;
+    const result = answers.reduce((score, ans) =>
+      score + (ans.correct ? questionWeight : 0), 0);
+    this.setState({
+      ...this.state,
+      result,
+    });
+    this.nextIndex();
+    updateAppExamResults({
+      answers,
+      result,
+    });
+  }
+
   updateReaction = (index) => {
     const {
       reactions,
@@ -66,31 +150,33 @@ class Exam extends Component {
       this.shuffle(shuffledOptions);
       const correctAnswer = shuffledOptions.indexOf(options[0]);
       gradeAnswer = this.updateExamResults(correctAnswer, shuffledOptions);
+      this.setState({
+        ...this.state,
+        shuffledOptions,
+        gradeAnswer,
+        reactionId,
+        reaction,
+        index,
+      });
     }
 
-    this.setState({
-      ...this.state,
-      shuffledOptions,
-      gradeAnswer,
-      reactionId,
-      reaction,
-      index,
-    });
   }
 
-  updateIndex = change => {
+  updateIndex = (change) => {
     const {
       index,
       reactionKeys,
     } = this.state;
     let nextIndex = index + change;
-    if (nextIndex < reactionKeys.length &&
+    if (nextIndex <= reactionKeys.length &&
         nextIndex >= 0) {
       this.setState({
         ...this.state,
         index: nextIndex,
       });
-      this.updateReaction(nextIndex);
+      if (nextIndex < reactionKeys.length) {
+        this.updateReaction(nextIndex);
+      }
     }
   }
 
@@ -122,9 +208,11 @@ class Exam extends Component {
       reaction,
       reactionId,
       gradeAnswer,
+      reactionKeys,
       shuffledOptions,
     } = this.state;
 
+    const gradeAndUpdate = this.gradeExam(this.props.updateAppExamResults);
     const isUnanswered = typeof answers[index] === 'undefined' ||
       answers[index].answer === '';
 
@@ -133,44 +221,61 @@ class Exam extends Component {
       <div className="section background">
         <div className="card is-info">
           <div className="card-content">
-            { index < 0 ?
+            {index < 0 ?
               <StartMessage {...this.props}
                 nextIndex={this.nextIndex}
                 /> :
-              <div className="exam-question">
-                <DragDropReactionQuestion
-                  {...{
-                    droppedCallback: gradeAnswer,
-                    options: shuffledOptions,
-                    reactionId,
-                    reaction,
-                  }}
-                />
+              <div>
+                {index < reactionKeys.length ?
+                  <DragDropReactionQuestion
+                    {...{
+                      droppedCallback: gradeAnswer,
+                      options: shuffledOptions,
+                      reactionId,
+                      reaction,
+                    }}
+                  /> :
+                  <ResultsScreen
+                    answers={this.state.answers}
+                    result={this.state.result}
+                    />
+                }
               </div>
             }
           </div>
           {index >= 0 ?
             <footer className="card-footer">
-              <div className="card-footer-item">
-                <a className="button is-fullwidth is-large is-info is-inverted"
-                  onClick={this.previousIndex}>
-                  Anterior
-                </a>
-              </div>
-              <div className="card-footer-item">
-                {isUnanswered ?
-                  <a className="button is-fullwidth is-large is-danger is-inverted"
-                  onClick={this.skipQuestion}>
-                    Saltar pregunta
-                  </a>:
-                  <a className="button is-fullwidth is-large is-info is-inverted"
-                    onClick={this.nextIndex}>
-                    Siguiente
-                  </a>
-                }
-              </div>
-            </footer> :
-              ''
+              {index < reactionKeys.length ?
+                  [<div key="prev" className="card-footer-item">
+                    <PreviousButton action={this.previousIndex} text={"Anterior"} />
+                  </div>,
+                  <div key="next" className="card-footer-item">
+                    <NextButton
+                      index={index}
+                      isUnanswered={isUnanswered}
+                      maxIndex={reactionKeys.length - 1}
+                      actions={{
+                        next: this.nextIndex,
+                        skip: this.skipQuestion,
+                        grade: gradeAndUpdate,
+                      }} />
+                  </div>] :
+                  [<div key="restart" className="card-footer-item">
+                   <Link to={'/exam'}
+                      className="button is-fullwidth is-large is-info is-inverted"
+                      >
+                      Iniciar de nuevo.
+                    </Link>
+                  </div>,
+                  <div key="home" className="card-footer-item">
+                    <Link to={'/'}
+                      className="button is-fullwidth is-large is-info is-inverted"
+                      >
+                      Ir al inicio.
+                    </Link>
+                  </div>]
+              }
+            </footer> : ''
           }
         </div>
       </div>
