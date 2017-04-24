@@ -1,4 +1,5 @@
 nav.nav {
+<<<<<<< Updated upstream
   background-color: #36A3EF; }
 
 nav.nav .nav-left {
@@ -17,3 +18,6 @@ nav.nav .nav-right .nav-item {
   margin-right: auto;
   max-height: 240px;
   max-width: 240px; }
+=======
+  background-color: #32A1F0; }
+>>>>>>> Stashed changes

@@ -11,20 +11,35 @@ const defaultQuestion = '¿Qué debe de ir en el espacio?';
 const defaultInstructions = 'Usa tu cursor para arrastrar la opción correcta al recuadro.';
 
 const dropBinStyle = {
-  height: '100%',
-  width: '100%',
+  //height: '100%',
+  //width: '100%',
+  //marginRight: 'auto',
+  //marginBottom: 'auto',
+  //color: 'white',
+  //textAlign: 'center',
+  height: 'auto',
+  width: 'auto',
+  marginLeft: 'auto',
   marginRight: 'auto',
-  marginBottom: 'auto',
-  color: 'white',
-  textAlign: 'center',
+  maxHeight: '240px',
+  maxWidth: '240px',
 };
 const dropBinPStyle = {
-  width: '100%',
-  height: '50%',
-  marginRight: 'auto',
-  marginBottom: 'auto',
-  marginTop: 'auto',
+  //width: '100%',
+  //height: '50%',
+  //marginRight: 'auto',
+  //marginBottom: 'auto',
+  //marginTop: 'auto',
+  //marginLeft: 'auto',
+  //color: 'white',
+  height: '240px',
+  width: 'auto',
   marginLeft: 'auto',
+  marginRight: 'auto',
+  marginTop: 'auto',
+  marginBottom: 'auto',
+  maxHeight: '240px',
+  maxWidth: '240px',
   color: 'white',
 };
 const optionStyle = {
@@ -153,6 +168,7 @@ class DragDropReactionQuestion extends Component {
           <div className="column is-two-thirds">
             <figure className="image">
               <img
+                className="reaction-img"
                 alt={`Reaction for ${reactionId} without result`}
                 src={reaction} />
             </figure>
