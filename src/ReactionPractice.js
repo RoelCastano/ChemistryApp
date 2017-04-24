@@ -3,6 +3,10 @@ import './ReactionPractice.css';
 
 class ReactionPractice extends Component {
   render() {
+    const {
+      reactionId,
+      reaction: { reaction, options },
+    } = this.props;
     return (
       <div className="section">
         <div className="card">
@@ -19,23 +23,23 @@ class ReactionPractice extends Component {
                 <code>is-one-third</code>
               </div>
               <div className="column is-two-thirds">
-                <code>is-two-thirds</code>
+                <figure className="image">
+                  <img
+                    alt={`Reaction for ${reactionId} without result`}
+                    src={reaction} />
+                </figure>
               </div>
             </div>
             <div
               className="options columns is-multiline">
-              <div className="column is-half">
-                <code>is-half</code>
-              </div>
-              <div className="column is-half">
-                <code>is-half</code>
-              </div>
-              <div className="column is-half">
-                <code>is-half</code>
-              </div>
-              <div className="column is-half">
-                <code>is-half</code>
-              </div>
+              {options.map((option, i) =>
+                <div key={i} className="column is-half">
+                  <figure className="image">
+                    <img alt={`Option ${i}`}
+                      className="option-img" src={option} />
+                  </figure>
+                </div>
+              )}
             </div>
             <div className="controls columns">
               <div

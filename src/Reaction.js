@@ -17,6 +17,7 @@ class Reaction extends Component {
   render() {
     const match = this.props.match;
     const reactionId = this.props.match.params.reactionId;
+    const reaction = this.props.reaction;
     return (
       <div className="section background">
         <div className="displayBox">
@@ -25,7 +26,10 @@ class Reaction extends Component {
           </p>
           <Switch>
             <Route path={`${match.url}/practice`}
-              component={ReactionPractice}>
+              component={() =>
+                <ReactionPractice
+                  reactionId={reactionId}
+                  reaction={reaction}/>}>
             </Route>
             <Route path={`${match.url}`}
               component={Description}>

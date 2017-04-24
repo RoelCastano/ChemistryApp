@@ -11,14 +11,22 @@ import Home from './Home';
 import Reaction from './Reaction';
 import Exam from './Exam';
 
+import reactions from './reaction_resources';
+
+const reactions_keys = Object.keys(reactions);
+
 class App extends Component {
   render() {
     return (
       <Router>
         <div id="main-content">
-          <TopNavbar />
+          <TopNavbar reactions_keys={reactions_keys} />
           <Switch>
-            <Route path="/reaction/:reactionId" component={Reaction}>
+            <Route path="/reaction/:reactionId"
+              component={props =>
+                <Reaction {...props}
+                  reaction={reactions[props.match.params.reactionId]}/>
+              }>
             </Route>
             <Route path="/exam" component={Exam}>
             </Route>

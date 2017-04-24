@@ -35,13 +35,6 @@ class TopNavbar extends Component {
   render() {
     const isActive = this.state.toggled ?
       'is-active' : '';
-    const reactions = {
-      'reaction_1': 'Aspirin',
-      'reaction_2': 'Valium',
-      'reaction_3': 'Librium',
-      'reaction_4': 'Advil',
-      'reaction_5': 'Tylenol'
-    };
     const matchedReaction = this.matchedReactionFromPath(
       this.props.location.pathname
     );
@@ -63,9 +56,9 @@ class TopNavbar extends Component {
                   <option value="/">
                     Selecciona una reacción
                   </option>
-                  {Object.keys(reactions).map(k => (
-                    <option key={k} value={k}>
-                      {reactions[k]}
+                  {this.props.reactions_keys.map(r => (
+                    <option key={r} value={r}>
+                      {r}
                     </option>
                   ))}
                 </select>
